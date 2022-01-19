@@ -6,10 +6,23 @@ let joueurEnCours = 1;
 let finJeu = false;
 let pointsJ1 = 0;
 let pointsJ2 = 0;
+let isIAON = false;
 
 initialisationTableau();
 
+function startIA() {
+    isIAON = !isIAON;
+}
+
 function jouer(colonne) {
+    jouerCase(colonne);
+    if (isIAON) {
+        colonneIA = IA.choixColonne();
+        jouerCase(colonneIA);
+    }
+}
+
+function jouerCase(colonne) {
     if (!finJeu) {
         let ligneVide = jeu.retournerLigneCaseVideColonne(colonne);
 
