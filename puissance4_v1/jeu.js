@@ -1,4 +1,4 @@
-let toolbox = require("./toolbox.js");
+// let toolbox = require("./toolbox.js");
 
 let jeu = {
     puissance4: [],
@@ -18,21 +18,37 @@ let jeu = {
      * Permet d'afficher un tableau de puissance 4
      */
     afficherPuissance4: function() {
-        for (let i = 0; i < this.puissance4.length; i++) {
-            let ligne = "";
-            for (let j = 0; j < this.puissance4[i].length; j++) {
-                ligne += "| ";
+        const jeu = document.querySelector("#jeu");
+        jeu.innerHTML = "";
+
+        let content = "<table>";
+        for (let i = 0; i < this.nbLignes; i++) {
+            content += "<tr>";
+            for (let j = 0; j < this.nbColonnes; j++) {
+                content += "<td class='border text-center' style='width:75px;height:75px;'>";
                 if (this.puissance4[i][j] === 0) {
-                    ligne += "_";
+                    content += "";
                 } else if (this.puissance4[i][j] === 1) {
-                    ligne += this.joueur1car;
+                    content += "<img src='images/J1.png' class='bg-success rounded-circle' style='width:50px;height:50px;'>";
                 } else if (this.puissance4[i][j] === 2) {
-                    ligne += this.joueur2car;
+                    content += "<img src='images/J2.png' class='bg-danger rounded-circle' style='width:50px;height:50px;'>";
                 }
-                ligne += " |";
+                content += "</td>";
             }
-            console.log(ligne);
+            content += "</tr>";
         }
+        content += "<tr>";
+        
+        content += "<td><button type='button' class='btn btn-secondary' onClick='jouer(1)'>Colonne 1</button></td>";
+        content += "<td><button type='button' class='btn btn-secondary' onClick='jouer(2)'>Colonne 2</button></td>";
+        content += "<td><button type='button' class='btn btn-secondary' onClick='jouer(3)'>Colonne 3</button></td>";
+        content += "<td><button type='button' class='btn btn-secondary' onClick='jouer(4)'>Colonne 4</button></td>";
+        content += "<td><button type='button' class='btn btn-secondary' onClick='jouer(5)'>Colonne 5</button></td>";
+        content += "<td><button type='button' class='btn btn-secondary' onClick='jouer(6)'>Colonne 6</button></td>";
+        content += "<td><button type='button' class='btn btn-secondary' onClick='jouer(7)'>Colonne 7</button></td>";
+        content += "</tr>";
+        content += "</table>";
+        jeu.innerHTML = content;
     },
     /**
      * Affiche le caractère du joueur dans la case
@@ -149,4 +165,4 @@ let jeu = {
     },
 }
 
-module.exports = jeu;
+// module.exports = jeu;

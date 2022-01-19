@@ -1,4 +1,4 @@
-let readline = require("readline-sync");
+// let readline = require("readline-sync");
 
 let toolbox = {
     /**
@@ -6,9 +6,9 @@ let toolbox = {
      * @param {String} txt 
      * @returns 
      */
-    saisieString: function(txt) {
-        return readline.question(txt);
-    },
+    // saisieString: function(txt) {
+    //     return readline.question(txt);
+    // },
     /**
      * Permet d'initialiser un tableau de tableaux en fonction d'un nombre de lignes et de colonnes passés en paramètres
      * @param {Number} nbLignes 
@@ -29,4 +29,4 @@ let toolbox = {
     },
 }
 
-module.exports = toolbox;
+// module.exports = toolbox;
